@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-require 'prosper'
+require 'prosper/api'
 
 require 'minitest/spec'
 require 'minitest/autorun'

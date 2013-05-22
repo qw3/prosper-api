@@ -1,15 +1,15 @@
 # -*- encoding : utf-8 -*-
-require 'prosper'
+require 'prosper/api'
 
 require 'minitest/spec'
 require 'minitest/autorun'
 
-describe Prosper::LancamentoFinanceiro do
+describe Prosper::Api::LancamentoFinanceiro do
 
   # tá comentado porque essa base tá vazia
 
   # before do
-  #   @prosper_lancamento_financeiro = Prosper::LancamentoFinanceiro.new( {
+  #   @prosper_lancamento_financeiro = Prosper::Api::LancamentoFinanceiro.new( {
   #     :id                 => 9999,
   #     :valor              => 100,
   #     :data               => '2014-01-30',
@@ -24,9 +24,9 @@ describe Prosper::LancamentoFinanceiro do
   # end
 
   # it "deveria listar corretamente" do
-  #   @lancamentos = Prosper::LancamentoFinanceiro.all
+  #   @lancamentos = Prosper::Api::LancamentoFinanceiro.all
   #   @lancamentos.count.must_be :>, 0
-  #   @lancamentos.first.must_be_instance_of Prosper::LancamentoFinanceiro
+  #   @lancamentos.first.must_be_instance_of Prosper::Api::LancamentoFinanceiro
   # end
 
   # it "deveria guardar dados corretamente" do
@@ -42,17 +42,17 @@ describe Prosper::LancamentoFinanceiro do
   # end
 
   # it "deveria recuperar dados corretamente" do 
-  #   lf = Prosper::LancamentoFinanceiro.find(1363)
+  #   lf = Prosper::Api::LancamentoFinanceiro.find(1363)
   #   lf.valor.to_f.must_equal 39.33
 
-  #   lf = Prosper::LancamentoFinanceiro.find(1363222)
+  #   lf = Prosper::Api::LancamentoFinanceiro.find(1363222)
   #   lf.valor.must_equal nil
   # end
 
   # it "deveria salvar dados corretamente" do
   #   @prosper_lancamento_financeiro.save
 
-  #   lf = Prosper::LancamentoFinanceiro.find(9999)
+  #   lf = Prosper::Api::LancamentoFinanceiro.find(9999)
   #   lf.valor.to_f.must_equal 100
   #   lf.data.must_equal '2014-01-30'
   # end
