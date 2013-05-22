@@ -3,7 +3,7 @@ require 'httparty'
 require 'json'
 
 module Prosper
-  class LancamentoFinanceiro
+  class FormaPagamento
 
     include HTTParty
 
@@ -16,31 +16,31 @@ module Prosper
     end
 
     def save
-      self.attributes = self.class.post("/api/lancamentos_financeiros", :body => {:lancamento_financeiro => self.attributes}).parsed_response.symbolize_keys
+      self.attributes = self.class.post("/api/formas_pagamento", :body => {:lancamento_financeiro => self.attributes}).parsed_response.symbolize_keys
     end
 
     def self.find(id)
       return nil if id.blank?
-      prosper_object = get("/api/lancamentos_financeiros/#{id}").parsed_response.symbolize_keys
+      prosper_object = get("/api/formas_pagamento/#{id}").parsed_response.symbolize_keys
       prosper_object = {:id => id} if prosper_object.empty?
-      LancamentoFinanceiro.new( prosper_object )
+      FormaPagamento.new( prosper_object )
     end
 
     def self.all
-      LancamentoFinanceiro.where
+      FormaPagamento.where
     end
 
     def self.where(options = {})
-      list = get("/api/lancamentos_financeiros", :body => options).parsed_response
+      list = get("/api/formas_pagamento", :body => options).parsed_response
       resposta = []
       list.each do |object|
-        resposta << LancamentoFinanceiro.new(object)
+        resposta << FormaPagamento.new(object)
       end
       resposta
     end
 
     def load!
-      attributes = LancamentoFinanceiro.find(self.attributes[:id]).attributes
+      attributes = FormaPagamento.find(self.attributes[:id]).attributes
     end
 
     def method_missing(m, *args, &block)  

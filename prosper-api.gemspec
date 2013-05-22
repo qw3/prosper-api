@@ -14,6 +14,8 @@ Gem::Specification.new do |spec|
   spec.license       = "MIT"
 
   spec.add_dependency 'httparty', '>= 0.11.0'
+  spec.add_dependency 'json', '~> 1.7.7'
+  spec.add_dependency 'activesupport', '>= 3.2.1'
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
