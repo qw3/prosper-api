@@ -13,7 +13,7 @@ module Prosper
     
     def self.config
       yield(Configuracao.instance) if block_given?
-      Configuracao.instance
+      return Configuracao.instance
     end
 
   end
